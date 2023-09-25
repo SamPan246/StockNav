@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>StockNav</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-highway.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+</head>
+<body>
+    <div class="logo w3-padding-large">
+        <h1>StockNav</h1>
+    </div>
+
+    <section class="hero w3-padding-large w3-container">
+        <h1 style="display: inline;">Find the current closing price of any company stock with a simple search!</h1>
+        <p>An efficient Stock Screener</p>
+
+        <form method="get" action="get_stock_data">
+            <input type="text" id="symbol" name="symbol" placeholder="Enter Stock Symbol">
+            <input type="submit" value="Get Data">
+           
+        </form>
+        <div><h1>Current {{request.args.get('symbol')}} Closing Price = {{stock}}</h1></div>
+    </section>
+    
+</body>
+</html>
